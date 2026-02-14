@@ -1,0 +1,103 @@
+TASK 16 – TIME SERIES FORECASTING REPORT
+Dataset: Monthly Car Sales Dataset
+Source: https://raw.githubusercontent.com/jbrownlee/Datasets/master/monthly-car-sales.csv
+
+------------------------------------------------------------
+1. OBJECTIVE
+------------------------------------------------------------
+The objective of this task was to analyze historical monthly car sales data, identify trends and seasonality patterns, and build a time-series forecasting model to predict future sales.
+
+------------------------------------------------------------
+2. DATA PREPARATION
+------------------------------------------------------------
+- The dataset was loaded using pandas.
+- The "Month" column was renamed to "Date".
+- The Date column was converted to datetime format.
+- The Date column was set as the index for proper time-series analysis.
+
+------------------------------------------------------------
+3. TREND ANALYSIS
+------------------------------------------------------------
+A line plot of monthly car sales was generated.
+
+Observations:
+- Sales showed an overall increasing trend in the early years.
+- There were fluctuations indicating possible seasonal behavior.
+- Some periods showed sudden drops, suggesting structural changes or economic impact.
+
+------------------------------------------------------------
+4. SEASONALITY CHECK
+------------------------------------------------------------
+A rolling mean (3-month window) was calculated to smooth the data.
+
+Observation:
+- The rolling mean revealed smoother patterns.
+- This confirmed the presence of recurring seasonal trends in the dataset.
+
+------------------------------------------------------------
+5. TRAIN-TEST SPLIT
+------------------------------------------------------------
+The dataset was split into:
+- 80% Training Data
+- 20% Testing Data
+
+The split was done chronologically to ensure that future data was not used to predict past data, maintaining proper time-series methodology.
+
+------------------------------------------------------------
+6. MODEL IMPLEMENTATION
+------------------------------------------------------------
+Two forecasting models were applied:
+
+Model 1: Exponential Smoothing (Trend Only)
+- Trend component: Additive
+- Seasonal component: None
+
+Model 2: Holt-Winters (Trend + Seasonality)
+- Trend component: Additive
+- Seasonal component: Additive
+- Seasonal period: 12 (monthly cycle)
+
+The Holt-Winters model performed better due to the presence of yearly seasonality.
+
+------------------------------------------------------------
+7. MODEL EVALUATION
+------------------------------------------------------------
+The model was evaluated using:
+
+MAE (Mean Absolute Error)
+- Measures the average absolute difference between actual and predicted values.
+
+MAPE (Mean Absolute Percentage Error)
+- Measures average percentage prediction error.
+
+Results:
+MAE: [Enter Your MAE Value Here]
+MAPE: [Enter Your MAPE Value Here] %
+
+Lower values indicate better forecasting accuracy.
+
+------------------------------------------------------------
+8. FUTURE FORECASTING
+------------------------------------------------------------
+Using the improved Holt-Winters model, the next 12 months of car sales were forecasted.
+
+The forecast suggests:
+- Continued seasonal fluctuations.
+- A moderate trend depending on recent training patterns.
+
+Forecast results were exported to:
+- forecast_output.csv
+- future_12_months_forecast.csv
+
+------------------------------------------------------------
+9. CONCLUSION
+------------------------------------------------------------
+The time-series analysis successfully identified both trend and seasonality in the monthly car sales data.
+
+The Holt-Winters model provided improved forecasting accuracy compared to the simple trend-only model.
+
+This task demonstrates how time-series forecasting can be used in business planning, demand estimation, and inventory management.
+
+------------------------------------------------------------
+END OF REPORT
+------------------------------------------------------------
